@@ -1,0 +1,21 @@
+---
+title: "rnoaa_xiongke"
+author: "xiongke"
+date: "2018骞?5鏈?31鏃?"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(rnoaa)
+options(noaakey = "tAtiGBeBgzgzMtUAneftDBaffgDUZdTr")
+ncdc_locs(locationcategoryid = "CITY", sortfield = "name", sortorder = "desc",
+    limit = 5)
+out <- ncdc(datasetid = "GHCND", stationid = "GHCND:USW00014895", datatypeid = "PRCP",
+    startdate = "2010-05-01", enddate = "2010-10-31")
+head(out$data)
+```
+
