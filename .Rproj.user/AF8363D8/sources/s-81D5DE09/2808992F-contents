@@ -17,5 +17,11 @@ ncdc_locs(locationcategoryid = "CITY", sortfield = "name", sortorder = "desc",
 out <- ncdc(datasetid = "GHCND", stationid = "GHCND:USW00014895", datatypeid = "PRCP",
     startdate = "2010-05-01", enddate = "2010-10-31")
 head(out$data)
+res <- ncdc_datasets()
+res$data
+ncdc_datacats(locationid = "CITY:US390029", limit = 5)
+out <- ncdc(datasetid = "GHCND", stationid = "GHCND:USW00014895", datatypeid = "PRCP",
+    startdate = "2010-05-01", enddate = "2010-10-31", limit = 500)
+ncdc_plot(out, breaks = "1 month", dateformat = "%d/%m")
 ```
 
